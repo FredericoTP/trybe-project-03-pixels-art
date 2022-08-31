@@ -101,6 +101,18 @@ for (let index = 0; index < colorButtons.length; index += 1) {
   colorButtons[index].addEventListener("click", recebeClick);
 }
 
+function colorBgPixelBoard(event) {
+  const selectButton = document.querySelector(".selected");
+  const color = JSON.stringify(selectButton.style.backgroundColor);
+  event.target.style.backgroundColor = JSON.parse(color);
+}
+
+const pixels = document.getElementsByClassName("pixel");
+for (let index2 = 0; index2 < pixels.length; index2 += 1) {
+  pixels[index2].addEventListener("click", colorBgPixelBoard);
+}
+
+
 function initialize() {
   const divColor = document.getElementsByClassName("color")
   let palette = localStorage.getItem("colorPalette");

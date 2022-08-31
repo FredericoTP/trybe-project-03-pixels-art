@@ -10,6 +10,31 @@ function addDivColorPalette() {
 
 addDivColorPalette();
 
+function addDivLinePixelBoard() {
+  const pixelBoard = document.getElementById("pixel-board")
+  for (let index = 0; index < 5; index += 1) {
+    const newDiv = document.createElement("div");
+    newDiv.className = "line";
+    pixelBoard.appendChild(newDiv);
+  }
+}
+
+addDivLinePixelBoard();
+
+function addDivColumnPixelBoard() {
+  const divPixelBoard = document.getElementsByClassName("line")
+  for (let index = 0; index < divPixelBoard.length; index += 1) {
+    for (let index2 = 0; index2 < 5; index2 += 1) {
+      const newDiv = document.createElement("div");
+      newDiv.className = "pixel";
+      newDiv.style.backgroundColor = "white";
+      divPixelBoard[index].appendChild(newDiv);
+    }
+  }
+}
+
+addDivColumnPixelBoard();
+
 function addColorInDivsPalette() {
   const div = document.getElementsByClassName("color");
   const colors = ["black", "blue", "aqua", "springgreen"];
@@ -68,7 +93,6 @@ function initialize() {
       divColor[index].style.backgroundColor = paletteStr[index];
     }
   }
-  console.log(paletteStr)
 }
 
 initialize()

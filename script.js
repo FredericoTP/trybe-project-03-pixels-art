@@ -54,6 +54,15 @@ function createButton() {
 
 createButton();
 
+function createButton2() {
+  const button = document.createElement("button");
+  button.id = "clear-board";
+  button.innerText = "Limpar"
+  colorPallete.appendChild(button);
+}
+
+createButton2();
+
 function randomColorGenerator() {
   const red = Math.floor(Math.random() * 256);
   const green = Math.floor(Math.random() * 256);
@@ -112,6 +121,21 @@ for (let index2 = 0; index2 < pixels.length; index2 += 1) {
   pixels[index2].addEventListener("click", colorBgPixelBoard);
 }
 
+function pixelToWhite() {
+  const pixel = document.getElementsByClassName("pixel");
+  for (let index = 0; index < pixel.length; index += 1) {
+    pixel[index].style.backgroundColor = "white";
+  }
+}
+
+function clearPixelBoard() {
+  const clearButton = document.querySelector("#clear-board");
+  clearButton.addEventListener("click", function(event) {
+    event.target = pixelToWhite();
+  })
+}
+
+clearPixelBoard()
 
 function initialize() {
   const divColor = document.getElementsByClassName("color")

@@ -39,16 +39,36 @@ function randomColorGenerator() {
 
 function randomColorPalette() {
   const divColors = document.getElementsByClassName("color");
+  let cor = [];
   for (let index = 1; index < divColors.length; index += 1) {
     divColors[index].style.backgroundColor = randomColorGenerator();
+    cor.push(divColors[index].style.backgroundColor);
   }
+  
+  cor.unshift("black");
+  localStorage.setItem("colorPalette", JSON.stringify(cor));
 }
 
 function randomColorButton() {
   const button = document.getElementById("button-random-color");
   button.addEventListener("click", function(event) {
     event.target = randomColorPalette();
-  });
+  })
 }
 
 randomColorButton();
+
+function initialize() {
+  const divColor = document.getElementsByClassName("color")
+  let palette = localStorage.getItem("colorPalette");
+  let paletteStr = JSON.parse(palette);
+  
+  if (palette) {
+    for (let index = 0; index < divColor.length; index += 1) {
+      divColor[index].style.backgroundColor = paletteStr[index];
+    }
+  }
+  console.log(paletteStr)
+}
+
+initialize()

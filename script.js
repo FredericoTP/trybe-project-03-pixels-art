@@ -83,6 +83,24 @@ function randomColorButton() {
 
 randomColorButton();
 
+function selectButton() {
+  const colors = document.getElementsByClassName("color")
+  colors[0].className = "color selected";
+}
+
+selectButton();
+
+function recebeClick(event) {
+  let colorSelected = document.querySelector(".selected");
+  colorSelected.classList.remove("selected");
+  event.target.classList.add("selected");
+}
+
+const colorButtons = document.getElementsByClassName("color");
+for (let index = 0; index < colorButtons.length; index += 1) {
+  colorButtons[index].addEventListener("click", recebeClick);
+}
+
 function initialize() {
   const divColor = document.getElementsByClassName("color")
   let palette = localStorage.getItem("colorPalette");

@@ -1,9 +1,9 @@
-const colorPallete = document.getElementById("color-palette");
+const colorPallete = document.getElementById('color-palette');
 
 function addDivColorPalette() {
   for (let index = 0; index < 4; index += 1) {
-    const newDiv = document.createElement("div");
-    newDiv.className = "color";
+    const newDiv = document.createElement('div');
+    newDiv.className = 'color';
     colorPallete.appendChild(newDiv);
   }
 }
@@ -11,10 +11,10 @@ function addDivColorPalette() {
 addDivColorPalette();
 
 function addDivLinePixelBoard() {
-  const pixelBoard = document.getElementById("pixel-board")
+  const pixelBoard = document.getElementById('pixel-board')
   for (let index = 0; index < 5; index += 1) {
-    const newDiv = document.createElement("div");
-    newDiv.className = "line";
+    const newDiv = document.createElement('div');
+    newDiv.className = 'line';
     pixelBoard.appendChild(newDiv);
   }
 }
@@ -22,12 +22,12 @@ function addDivLinePixelBoard() {
 addDivLinePixelBoard();
 
 function addDivColumnPixelBoard() {
-  const divPixelBoard = document.getElementsByClassName("line")
+  const divPixelBoard = document.getElementsByClassName('line')
   for (let index = 0; index < divPixelBoard.length; index += 1) {
     for (let index2 = 0; index2 < 5; index2 += 1) {
-      const newDiv = document.createElement("div");
-      newDiv.className = "pixel";
-      newDiv.style.backgroundColor = "white";
+      const newDiv = document.createElement('div');
+      newDiv.className = 'pixel';
+      newDiv.style.backgroundColor = 'white';
       divPixelBoard[index].appendChild(newDiv);
     }
   }
@@ -36,8 +36,8 @@ function addDivColumnPixelBoard() {
 addDivColumnPixelBoard();
 
 function addColorInDivsPalette() {
-  const div = document.getElementsByClassName("color");
-  const colors = ["black", "blue", "aqua", "springgreen"];
+  const div = document.getElementsByClassName('color');
+  const colors = ['black', 'blue', 'aqua', 'springgreen'];
   for (let index = 0; index < div.length; index += 1) {
     div[index].style.backgroundColor = colors[index];
   }
@@ -46,18 +46,18 @@ function addColorInDivsPalette() {
 addColorInDivsPalette();
 
 function createButton() {
-  const button = document.createElement("button");
-  button.id = "button-random-color";
-  button.innerText = "Cores aleatórias"
+  const button = document.createElement('button');
+  button.id = 'button-random-color';
+  button.innerText = 'Cores aleatórias';
   colorPallete.appendChild(button);
 }
 
 createButton();
 
 function createButton2() {
-  const button = document.createElement("button");
-  button.id = "clear-board";
-  button.innerText = "Limpar"
+  const button = document.createElement('button');
+  button.id = 'clear-board';
+  button.innerText = 'Limpar';
   colorPallete.appendChild(button);
 }
 
@@ -72,20 +72,20 @@ function randomColorGenerator() {
 }
 
 function randomColorPalette() {
-  const divColors = document.getElementsByClassName("color");
+  const divColors = document.getElementsByClassName('color');
   let cor = [];
   for (let index = 1; index < divColors.length; index += 1) {
     divColors[index].style.backgroundColor = randomColorGenerator();
     cor.push(divColors[index].style.backgroundColor);
   }
   
-  cor.unshift("black");
-  localStorage.setItem("colorPalette", JSON.stringify(cor));
+  cor.unshift('black');
+  localStorage.setItem('colorPalette', JSON.stringify(cor));
 }
 
 function randomColorButton() {
-  const button = document.getElementById("button-random-color");
-  button.addEventListener("click", function(event) {
+  const button = document.getElementById('button-random-color');
+  button.addEventListener('click', function(event) {
     event.target = randomColorPalette();
   })
 }
@@ -93,44 +93,44 @@ function randomColorButton() {
 randomColorButton();
 
 function selectButton() {
-  const colors = document.getElementsByClassName("color")
-  colors[0].className = "color selected";
+  const colors = document.getElementsByClassName('color')
+  colors[0].className = 'color selected';
 }
 
 selectButton();
 
 function recebeClick(event) {
-  let colorSelected = document.querySelector(".selected");
-  colorSelected.classList.remove("selected");
-  event.target.classList.add("selected");
+  let colorSelected = document.querySelector('.selected');
+  colorSelected.classList.remove('selected');
+  event.target.classList.add('selected');
 }
 
-const colorButtons = document.getElementsByClassName("color");
+const colorButtons = document.getElementsByClassName('color');
 for (let index = 0; index < colorButtons.length; index += 1) {
-  colorButtons[index].addEventListener("click", recebeClick);
+  colorButtons[index].addEventListener('click', recebeClick);
 }
 
 function colorBgPixelBoard(event) {
-  const selectButton = document.querySelector(".selected");
+  const selectButton = document.querySelector('.selected');
   const color = JSON.stringify(selectButton.style.backgroundColor);
   event.target.style.backgroundColor = JSON.parse(color);
 }
 
-const pixels = document.getElementsByClassName("pixel");
+const pixels = document.getElementsByClassName('pixel');
 for (let index2 = 0; index2 < pixels.length; index2 += 1) {
-  pixels[index2].addEventListener("click", colorBgPixelBoard);
+  pixels[index2].addEventListener('click', colorBgPixelBoard);
 }
 
 function pixelToWhite() {
-  const pixel = document.getElementsByClassName("pixel");
+  const pixel = document.getElementsByClassName('pixel');
   for (let index = 0; index < pixel.length; index += 1) {
-    pixel[index].style.backgroundColor = "white";
+    pixel[index].style.backgroundColor = 'white';
   }
 }
 
 function clearPixelBoard() {
-  const clearButton = document.querySelector("#clear-board");
-  clearButton.addEventListener("click", function(event) {
+  const clearButton = document.querySelector('#clear-board');
+  clearButton.addEventListener('click', function(event) {
     event.target = pixelToWhite();
   })
 }
@@ -138,8 +138,8 @@ function clearPixelBoard() {
 clearPixelBoard()
 
 function initialize() {
-  const divColor = document.getElementsByClassName("color")
-  let palette = localStorage.getItem("colorPalette");
+  const divColor = document.getElementsByClassName('color')
+  let palette = localStorage.getItem('colorPalette');
   let paletteStr = JSON.parse(palette);
   
   if (palette) {

@@ -114,6 +114,14 @@ function colorBgPixelBoard(event) {
   const selectButton = document.querySelector('.selected');
   const color = JSON.stringify(selectButton.style.backgroundColor);
   event.target.style.backgroundColor = JSON.parse(color);
+  
+  let coloredPixels = [];
+  const divPixel = document.getElementsByClassName('pixel');
+  for (let index = 0; index < divPixel.length; index += 1) {
+  coloredPixels.push(window.getComputedStyle(divPixel[index]).getPropertyValue('background-color'))
+  }
+
+  localStorage.setItem('pixelBoard', JSON.stringify(coloredPixels));
 }
 
 const pixels = document.getElementsByClassName('pixel');
@@ -147,6 +155,24 @@ function initialize() {
       divColor[index].style.backgroundColor = paletteStr[index];
     }
   }
+
+  const divPixel = document.getElementsByClassName('pixel')
+  let pixels = localStorage.getItem('pixelBoard');
+  let pixelsStr = JSON.parse(pixels);
+
+  if (pixels) {
+    for (let index = 0; index < divPixel.length; index += 1) {
+      divPixel[index].style.backgroundColor = pixelsStr[index];
+    }
+  }
 }
 
 initialize()
+
+// let aaa = [];
+// const divv = document.getElementsByClassName("pixel");
+// for (let index4 = 0; index4 < divv.length; index4 += 1) {
+//   aaa.push(window.getComputedStyle(divv[index4] ,null).getPropertyValue('background-color'))
+// }
+
+// console.log(aaa);

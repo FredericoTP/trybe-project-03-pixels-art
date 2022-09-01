@@ -20,7 +20,13 @@ function addDivLinePixelBoard(n) {
   }
 }
 
-addDivLinePixelBoard(5);
+const boardSize = localStorage.getItem('boardSize');
+if (boardSize) {
+  addDivLinePixelBoard(boardSize);
+} else {
+  addDivLinePixelBoard(5);
+}
+
 
 function addDivColumnPixelBoard(n) {
   const divPixelBoard = document.getElementsByClassName('line');
@@ -34,7 +40,11 @@ function addDivColumnPixelBoard(n) {
   }
 }
 
-addDivColumnPixelBoard(5);
+if (boardSize) {
+  addDivColumnPixelBoard(boardSize);
+} else {
+  addDivColumnPixelBoard(5);
+}
 
 function addColorInDivsPalette() {
   const div = document.getElementsByClassName('color');
@@ -141,6 +151,7 @@ function clearPixelBoard() {
   const clearButton = document.querySelector('#clear-board');
   clearButton.addEventListener('click', function (event) {
     event.target = pixelToWhite();
+    localStorage.removeItem('pixelBoard');
   });
 }
 
@@ -174,6 +185,7 @@ btn.addEventListener('click', function () {
       for (let index2 = 0; index2 < pixels.length; index2 += 1) {
         pixels[index2].addEventListener('click', colorBgPixelBoard);
       }
+      saveBoardSize();
     } else if (inputValue() > 50) {
       aaa = 50;
       removeAllChildNodes(pixelBoard)
@@ -183,6 +195,7 @@ btn.addEventListener('click', function () {
       for (let index2 = 0; index2 < pixels.length; index2 += 1) {
         pixels[index2].addEventListener('click', colorBgPixelBoard);
       }
+      saveBoardSize();
     } else {
       aaa = inputValue();
       removeAllChildNodes(pixelBoard)
@@ -192,10 +205,16 @@ btn.addEventListener('click', function () {
       for (let index2 = 0; index2 < pixels.length; index2 += 1) {
         pixels[index2].addEventListener('click', colorBgPixelBoard);
       }
+      saveBoardSize();
     }
   }
 })
 
+function saveBoardSize() {
+  const board = document.getElementsByClassName('line');
+  const boardSize = board.length;
+  localStorage.setItem('boardSize', JSON.stringify(boardSize));
+}
 
 function initialize() {
   const divColor = document.getElementsByClassName('color');
@@ -220,3 +239,4 @@ function initialize() {
 }
 
 initialize();
+

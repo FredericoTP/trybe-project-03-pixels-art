@@ -11,7 +11,7 @@ Nesse projeto foi desenvolvido um editor de arte com pixels. A pessoa usuária p
 <details>
 <summary>
   
-## 1- Requirements
+## 1- Requisitos
   
 </summary>
  

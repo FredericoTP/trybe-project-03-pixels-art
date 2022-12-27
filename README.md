@@ -159,6 +159,8 @@ O tamanho do board deve ser mantido ao recarregar a página usando localStorage<
 
 ## 100% :heavy_check_mark:
 
+![Project-Pixels-Art-Grade](https://github.com/FredericoTP/trybe-project-03-pixels-art/blob/main/pixel-art-grade.png?raw=true)
+
 <br />
 
 ## 3- Preview

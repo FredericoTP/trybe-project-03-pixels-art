@@ -1,10 +1,8 @@
-# :construction: README em construção ! :construction:
-
 # :computer: Trybe-03-Project-Pixels-Art :computer:
 
 Nesse projeto foi desenvolvido um editor de arte com pixels. A pessoa usuária pode escolher uma cor em uma paleta de cores e pode pintar o que quiser em um quadro branco.
 
-# Acesse o projeto clicando [aqui]()! :green_heart:
+# Acesse o projeto clicando [aqui](https://fredericotp.github.io/trybe-project-03-pixels-art/)! :green_heart:
 
 <br />
 
@@ -159,8 +157,10 @@ O tamanho do board deve ser mantido ao recarregar a página usando localStorage<
 
 ## 100% :heavy_check_mark:
 
-![Project-Pixels-Art-Grade](https://github.com/FredericoTP/trybe-project-03-pixels-art/blob/main/pixel-art-grade.png?raw=true)
+![Project-Pixels-Art-Grade](https://github.com/FredericoTP/trybe-project-03-pixels-art/blob/main/images/pixel-art-grade.png?raw=true)
 
 <br />
 
 ## 3- Preview
+
+![Project-Pixels-Art-Preview](https://github.com/FredericoTP/trybe-project-03-pixels-art/blob/main/images/pixel-art-preview.png?raw=true)
